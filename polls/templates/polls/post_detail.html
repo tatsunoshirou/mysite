@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+　{% load static %}
+　<link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css'%}">
+　　<head>
+    　　<meta charset="UTF-8">
+    <title>Title</title>
+　　</head>
+　<body>
+　　<div class="border bg-warning text-white">
+　　　<h1>投稿内容詳細</h1>
+    　<div class="mt-5 ml-sm-5 mb-md-5 pt-lg-5 pl-xl-5 border bg-info">
+        <h2>{{ post.name }}:{{ post.created_at }}</h2>
+        <br>
+        <h3>タイトル:{{ post.title }}</h3>
+        <br>
+        <h4>投稿内容</h4>
+        <br>
+        <h5>{{ post.message }}</h5>
+    　</div>
+　　</div>
+<button type="button" class="btn btn-light btn-lg"><a href="{% url 'post_list' %}">TOPページ</a></button>
+</body>
+<footer class="text-center text-muted py4">
+    tatsunos.com
+</footer>
+</html>

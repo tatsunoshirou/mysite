@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css'%}">
+<link rel="stylesheet" type="text/css" href="{% static 'cms/stylesheet.css' %}">
+<head>
+
+    <meta charset="UTF-8">
+    <title>アイスホッケーブログ</title>
+</head>
+<body>
+<div class="images">
+<h1 class="text-center font-weight-bold">アイスホッケーブログ</h1>
+    <br>
+<button type="button" class="btn btn-light btn-lg"><a href="{% url 'login' %}">LOGIN</a></button>
+</div>
+<h2 class="text-center">タイトル一覧</h2>
+
+    {% for post in posts %}
+
+        <body class="text-center">
+         <div class="text-center">{{ post.title }}:<a href="{% url 'post_detail' post.id %}">詳細</a></div>
+         <div class="font-weight-light ">{{ post.created_at }}
+
+
+        </div>
+
+    {% endfor %}
+
+<button type="button" class="btn btn-light btn-lg"><a href="{% url 'index' %}">投稿</a></button>
+<div>
+{% if posts.has_previous %}}
+<a href="?page={{ posts.previous_page_number }}">&lt;　前のページ</a>
+{% else %}
+<span>&lt;　前のページ</span>
+{% endif %}
+
+{{ posts.number }}ページ
+
+{% if posts.has_next %}
+<a href="?page={{ posts.next_page_number }}">次のページ &gt</a>
+{% else %}
+<span>次のページ</span>
+{% endif %}
+</div>
+</body>
+
+<footer class="text-center text-muted py4">
+    tatsunos.com
+</footer>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ <h1>アイスホッケーブログ</h1>
+ <h2>投稿</h2>
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="送信">
+</form>
+    <button type="button" class="btn btn-light btn-lg">
+    <a href="{% url 'post_list' %}">TOPページ</a></button>
+</body>
+</html>
