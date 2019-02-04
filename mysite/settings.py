@@ -104,6 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LOGOUT_REDIRECT_URL = 'post_list'
 LOGIN_REDIRECT_URL = 'post_list'
+LOGIN_URL = 'login'
 
 
 # Internationalization

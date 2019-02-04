@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from django.http.response import HttpResponse, HttpResponseRedirect
+from django.http.response import HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.http import Http404
 from django.urls import reverse
@@ -33,7 +33,7 @@ def post_detail(request, post_id):
                             {'post': post})
 
 
-@login_required
+@login_required()
 def index(request):
     if request.method == 'POST':
         form = PostForm(request.POST)

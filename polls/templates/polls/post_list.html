@@ -12,8 +12,15 @@
 <div class="images">
 <h1 class="text-center font-weight-bold">アイスホッケーブログ</h1>
     <br>
-<button type="button" class="btn btn-light btn-lg"><a href="{% url 'login' %}">LOGIN</a></button>
+    {% if user.is_authenticated %}
+        {{ user.username }}
+        <button type="button" class="btn btn-light btn-lg"><a href="{% url 'logout' %}" class="logout">LOGOUT</a></button>
+    {% else %}
+        <button type="button" class="btn btn-light btn-lg"><a href="{% url 'login' %}">LOGIN</a></button>
+    {% endif %}
+
 </div>
+
 <h2 class="text-center">タイトル一覧</h2>
 
     {% for post in posts %}
